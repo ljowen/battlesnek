@@ -17,7 +17,7 @@ function createGameState(me: Battlesnake): GameState {
             hazards: []
         },
         you: me
-    }
+    } as unknown as GameState
 }
 
 function createBattlesnake(id: string, body: Coord[]): Battlesnake {
@@ -30,8 +30,8 @@ function createBattlesnake(id: string, body: Coord[]): Battlesnake {
         head: body[0],
         length: body.length,
         shout: "",
-        squad: ""
-    }
+        squad: "",        
+    } as Battlesnake
 }
 
 describe('Battlesnake API Version', () => {
