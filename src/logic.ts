@@ -5,8 +5,8 @@ export function info(): InfoResponse {
     const response: InfoResponse = {
         apiversion: "1",
         author: "",
-        color: "#888888",
-        head: "default",
+        color: "#880800",
+        head: "default", 
         tail: "default"
     }
     return response
@@ -43,8 +43,21 @@ export function move(gameState: GameState): MoveResponse {
 
     // TODO: Step 1 - Don't hit walls.
     // Use information in gameState to prevent your Battlesnake from moving beyond the boundaries of the board.
-    // const boardWidth = gameState.board.width
-    // const boardHeight = gameState.board.height
+    const boardWidth = gameState.board.width
+    const boardHeight = gameState.board.height
+    if(myHead.x === 0) {
+      possibleMoves.left = false;
+    }
+    if(myHead.y === 0) {
+      possibleMoves.down = false;
+    }
+    if(myHead.x === gameState.board.width) {
+      possibleMoves.right = false;
+    }
+    if(myHead.y === gameState.board.height) {
+      possibleMoves.up = false;
+    }
+  
 
     // TODO: Step 2 - Don't hit yourself.
     // Use information in gameState to prevent your Battlesnake from colliding with itself.
